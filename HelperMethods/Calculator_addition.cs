@@ -17,7 +17,7 @@ namespace MobileTest.HelperMethods
             digit.ClickOndigits(First);
             driver.Report().Step("Click on digit 2", screenshot: true);
             driver.FindElementById("com.android.calculator2:id/op_add").Click();
-            digit.(Second);
+            digit.ClickOndigits(Second);
             oprator.ClickOnOperations("Equal");
             var val = _driver.FindElementById("com.android.calculator2:id/result").Text;
             Assert.AreEqual("7", val);
