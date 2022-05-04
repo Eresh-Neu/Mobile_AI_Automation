@@ -23,7 +23,7 @@ namespace MobileTest
         }
 
         [Test(Description = "Addition")]
-        public void MyFirstTest()
+        public void Addition()
         {
             Calculator_Add.ResetAndWaitForReady(1000);
             Calculator_Add.Addition(2,5);
@@ -31,7 +31,7 @@ namespace MobileTest
                                
         }
         [Test(Description = "subtraction")]
-        public void MySecondTest()
+        public void Substraction()
         {
             Calculator_Add.ResetAndWaitForReady(1000);
             Calculator_Add.Addition(2,5);
