@@ -11,5 +11,6 @@ namespace MobileTest.PageElements
        public string one = "com.android.calculator2:id/digit_1";
         public string two = "com.android.calculator2:id/digit_2";
         public string three = "com.android.calculator2:id/digit_3";
+        public string four = "com.android.calculator2:id/digit_4";
     }
 }
