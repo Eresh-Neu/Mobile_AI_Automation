@@ -41,8 +41,9 @@ namespace MobileTest
         [TearDown]
         public void CloseApp()
         {
-            _driver.CloseApp();
             driver.Report().DisableReports(true);
+            _driver.CloseApp();
+            
         }
     }
 }
