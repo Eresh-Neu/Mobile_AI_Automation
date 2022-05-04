@@ -13,29 +13,30 @@ namespace MobileTest
     [TestFixture]
     public class Calculator_Tests:BaseClass
     {
-        public Calculator_Digits Calculator_Add;
+        public Calculator_addition calculator;
+        public CommonMethods commonMethods;
        [SetUp]
         public void Setup()
         {
             Initialization();
-            Calculator_Add = new Calculator_Digits();
+            calculator = new Calculator_addition();
+            commonMethods = new CommonMethods();
             driver.Report().DisableAutoTestReports(true);
         }
 
         [Test(Description = "Addition")]
         public void Addition()
         {
-            Calculator_Add.ResetAndWaitForReady(1000);
-            Calculator_Add.Addition(2,5);
-            driver.Report().Test("First");
-                               
+            commonMethods.ResetAndWaitForReady(1000);
+            calculator.Addition(2, 5);            
+            driver.Report().Test("Addition");                               
         }
         [Test(Description = "subtraction")]
         public void Substraction()
         {
-            Calculator_Add.ResetAndWaitForReady(1000);
-            Calculator_Add.Addition(2,5);
-            driver.Report().Test("second_test");
+            commonMethods.ResetAndWaitForReady(1000);
+            calculator.Addition(2,5);
+            driver.Report().Test("substract");
         }
         [TearDown]
         public void CloseApp()

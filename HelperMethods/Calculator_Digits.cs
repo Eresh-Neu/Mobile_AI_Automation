@@ -11,26 +11,10 @@ namespace MobileTest.HelperMethods
 {
    public class Calculator_Digits : BaseClass
     {
-        Calculator_Oparators oprator = new Calculator_Oparators();
-        Calculator_digits_Elements digitElement = new Calculator_digits_Elements();
-        public void Addition(int First, int Second) {
-            Thread.Sleep(1000);
-            ClickOndigits(First);
-            driver.Report().Step("Click on digit 2", screenshot: true);
-            driver.FindElementById("com.android.calculator2:id/op_add").Click();
-            ClickOndigits(Second);
-            oprator.ClickOnOperations("Equal");
-            var val = _driver.FindElementById("com.android.calculator2:id/result").Text;
-            Assert.AreEqual("7", val);
-            driver.Report().Step("Displayed 7", screenshot: true);
-        }        
 
-        public void ResetAndWaitForReady(int sec)
-        {
-            driver.ResetApp();
-            Thread.Sleep(sec);
-        }
-        public void ClickOndigits(int val)
+        Calculator_digits_Elements digitElement = new Calculator_digits_Elements();       
+
+       public void ClickOndigits(int val)
         {
             switch (val)
             {
