@@ -4,8 +4,7 @@ using System.Text;
 
 namespace MobileTest.PageElements
 {
-    public class Calculator_Addition
+    class Calculator_Operator_Elements
     {
-
     }
 }

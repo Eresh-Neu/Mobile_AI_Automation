@@ -35,12 +35,13 @@ namespace MobileTest
         {
             Calculator_Add.ResetAndWaitForReady(1000);
             Calculator_Add.Addition(2,5);
-            driver.Report().Test("second");
+            driver.Report().Test("second_test");
         }
         [TearDown]
         public void CloseApp()
         {
             _driver.CloseApp();
+            driver.Report().DisableReports(true);
         }
     }
 }
