@@ -35,7 +35,7 @@ namespace MobileTest
         public void Substraction()
         {
             commonMethods.ResetAndWaitForReady(1000);
-            calculator.Addition(2,5);
+            calculator.Addition(2,7);
             driver.Report().Test("substract");
         }
         [TearDown]
