@@ -21,9 +21,13 @@ namespace MobileTest
             Initialization();
             calculator = new Calculator_addition();
             commonMethods = new CommonMethods();
-            driver.Report().DisableAutoTestReports(true);
+            //driver.Report().DisableAutoTestReports(true);
         }
-
+        [Test(Description = "Addition")]
+        public void Addition1()
+        {
+            driver.ResetApp();
+        }
         [Test(Description = "Addition")]
         public void Addition()
         {
@@ -35,15 +39,15 @@ namespace MobileTest
         public void Substraction()
         {
             commonMethods.ResetAndWaitForReady(1000);
-            calculator.Addition(2,7);
+            calculator.Addition(2,5);
             driver.Report().Test("substract");
         }
         [TearDown]
         public void CloseApp()
         {
-            driver.Report().DisableReports(true);
-            _driver.CloseApp();
-            
+           driver.Report().DisableReports(true);
+           _driver.CloseApp();
+                       
         }
     }
 }

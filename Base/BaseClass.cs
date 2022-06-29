@@ -8,7 +8,8 @@ using System;
 using System.Threading;
 //using OpenQA.Selenium.Appium.Android;
 using TestProject.OpenSDK.Drivers.Android;
- 
+
+
 namespace MobileTest
 {
     [TestFixture]
@@ -35,7 +36,7 @@ namespace MobileTest
 
         public void Initialization()
         {
-             
+                      
             loadSettings = Config.Get<AppSettings>();
             string AppActivity1 = loadSettings.Devices[0].LocalSettings.AppActivity;
             string AppPackage1 = loadSettings.Devices[0].LocalSettings.AppPackage;
@@ -49,7 +50,7 @@ namespace MobileTest
             cap.AddAdditionalCapability("appActivity", AppActivity1);
 
             _driver = new AndroidDriver<IWebElement>(null, DevToken, cap);
-
+            
         }
     }
 }
