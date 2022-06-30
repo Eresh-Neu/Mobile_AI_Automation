@@ -30,6 +30,7 @@ namespace MobileTest.TestScripts
             driver.FindElementById("com.android.packageinstaller:id/permission_allow_button").Click();
             Thread.Sleep(15000);
             restaurents.ClickOnRestaurents();
+            Thread.Sleep(3000);
             IWebElement source = driver.FindElementByXPath(rPE.Delivery);
             IWebElement destination = driver.FindElementByXPath(rPE.TheFoxHouse);
             commonMethods.Swipe(source, destination);
