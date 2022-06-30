@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using MobileTest.HelperMethods;
+using MobileTest.PageElements;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System.Threading;
@@ -9,52 +11,51 @@ namespace MobileTest.TestScripts
     [TestFixture]
     public class AllMart_Restaurents : BaseClass
     {
+        public CommonMethods commonMethods;
+        public Retaurents_Page restaurents;
+        public Restaurents_Page_Elements rPE;
         [SetUp]
         public void Setup()
         {
             Initialization();
+            commonMethods = new CommonMethods();
+            restaurents = new Retaurents_Page();
+            rPE = new Restaurents_Page_Elements();
         }
         [Test]
         public void FindRestaurentsAndClick()
         {
-            driver.ResetApp();
-            Thread.Sleep(3000);
+            
+            commonMethods.ResetAndWaitForReady(2000);
             driver.FindElementById("com.android.packageinstaller:id/permission_allow_button").Click();
-            //Thread.Sleep(15000);
-            WaitForElement(driver.FindElementByXPath("//android.widget.TextView[@text = 'Restaurants']"), 5);
-            driver.FindElementByXPath("//android.widget.TextView[@text = 'Restaurants']").Click();
-            IWebElement ele = driver.FindElementByXPath("//android.widget.TextView[@text = 'Delivery']");
-            IWebElement element = driver.FindElementByXPath("//android.widget.TextView[@text = 'The Fox House']");
-            WaitForElement(element, 5);
-            TouchActions action = new TouchActions(driver);
-            action.ClickAndHold(element).MoveToElement(ele);
-            action.Perform();
-            driver.FindElementByXPath("//android.widget.TextView[@text = 'KFC Old Parham Road']").Click();
+            Thread.Sleep(15000);
+            restaurents.ClickOnRestaurents();
+            IWebElement source = driver.FindElementByXPath(rPE.Delivery);
+            IWebElement destination = driver.FindElementByXPath(rPE.TheFoxHouse);
+            commonMethods.Swipe(source, destination);
+            //TouchActions action = new TouchActions(driver);
+            //action.ClickAndHold(element).MoveToElement(ele);
+            //action.Perform();
+            // driver.FindElementByXPath(restaurents.KFCOldParhamRoad).Click();
+            restaurents.ClickOnRestaurentName();
             Thread.Sleep(3000);
-            driver.FindElementByXPath("//android.widget.RelativeLayout[1]/android.widget.FrameLayout//android.view.View").Click();
+            commonMethods.ClickOnElement(rPE.DailySpecial);
             Thread.Sleep(3000);
-            driver.FindElementByXPath("//android.widget.LinearLayout/android.widget.RelativeLayout//android.view.View").Click();
+            commonMethods.ClickOnElement(rPE.TuesdaySpecial);
             Thread.Sleep(3000);
-            driver.FindElementByXPath("//android.widget.TextView[@text = 'Add']").Click();
+            commonMethods.ClickOnElement(rPE.AddItem);
             Thread.Sleep(3000);
-            driver.FindElementByXPath("//android.widget.TextView[@text = 'Add to Cart']").Click();
+            commonMethods.ClickOnElement(rPE.AddCart);
             Thread.Sleep(3000);
-            driver.FindElementByXPath("//android.widget.TextView[@text = 'Checkout (1 item)']").Click();
+            commonMethods.ClickOnElement(rPE.CheckOut);
+            driver.Report().Test("FindRestaurents");
         }
-
-        public void WaitForElement(IWebElement ele, int retries )
+        [TearDown]
+        public void CloseApp()
         {
-            while (retries > 0)
-            {
-                if (ele.Displayed)
-                {
-                    break;
-                }
-                else
-                {
-                    Thread.Sleep(2000);
-                }
-            }
+            driver.Report().DisableReports(true);
+            _driver.CloseApp();
+
         }
     }
 }
