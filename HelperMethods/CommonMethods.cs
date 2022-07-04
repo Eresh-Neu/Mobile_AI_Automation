@@ -24,6 +24,9 @@ namespace MobileTest.HelperMethods
         public void ClickOnElement(string element)
         {
             driver.FindElementByXPath(element).Click();
+            Thread.Sleep(3000);
+            driver.Report().Step(element,"Click on element");
+            //driver.Report().Step()
         }
     }
 }

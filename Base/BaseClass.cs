@@ -49,8 +49,7 @@ namespace MobileTest
             cap.AddAdditionalCapability("appPackage", AppPackage1 );
             cap.AddAdditionalCapability("appActivity", AppActivity1);
 
-            _driver = new AndroidDriver<IWebElement>(null, DevToken, cap);
-            
+            _driver = new AndroidDriver<IWebElement>(null, DevToken, cap);                        
         }
     }
 }
