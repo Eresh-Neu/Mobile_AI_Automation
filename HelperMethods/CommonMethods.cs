@@ -26,7 +26,12 @@ namespace MobileTest.HelperMethods
             driver.FindElementByXPath(element).Click();
             Thread.Sleep(3000);
             driver.Report().Step(element,"Click on element");
-            //driver.Report().Step()
+        }
+
+        public void CloseAlert()
+        {
+            driver.FindElementById("com.android.packageinstaller:id/permission_allow_button").Click();
+            Thread.Sleep(15000);
         }
     }
 }

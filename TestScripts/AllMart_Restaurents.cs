@@ -25,20 +25,9 @@ namespace MobileTest.TestScripts
         [Test]
         public void FindRestaurent()
         {
-
             commonMethods.ResetAndWaitForReady(2000);
-            driver.FindElementById("com.android.packageinstaller:id/permission_allow_button").Click();
-            Thread.Sleep(15000);
+            commonMethods.CloseAlert();
             restaurents.ClickOnRestaurents();
-            IWebElement source = driver.FindElementByXPath(rPE.Delivery);
-            IWebElement destination = driver.FindElementByXPath(rPE.TheFoxHouse);
-            commonMethods.Swipe(source, destination);
-            restaurents.ClickOnRestaurentName();
-            commonMethods.ClickOnElement(rPE.DailySpecial);
-            commonMethods.ClickOnElement(rPE.TuesdaySpecial);
-            commonMethods.ClickOnElement(rPE.AddItem);
-            commonMethods.ClickOnElement(rPE.AddCart);
-            commonMethods.ClickOnElement(rPE.CheckOut);
             driver.Report().Test("FindRestaurents");
         }
         [Test]
@@ -46,8 +35,9 @@ namespace MobileTest.TestScripts
         {
             
             commonMethods.ResetAndWaitForReady(2000);
-            driver.FindElementById("com.android.packageinstaller:id/permission_allow_button").Click();
-            Thread.Sleep(15000);
+            commonMethods.CloseAlert();
+            //driver.FindElementById("com.android.packageinstaller:id/permission_allow_button").Click();
+            //Thread.Sleep(15000);
             restaurents.ClickOnRestaurents();
             IWebElement source = driver.FindElementByXPath(rPE.Delivery);
             IWebElement destination = driver.FindElementByXPath(rPE.TheFoxHouse);
@@ -65,7 +55,6 @@ namespace MobileTest.TestScripts
         {
             driver.Report().DisableReports(true);
             _driver.CloseApp();
-
         }
     }
 }
