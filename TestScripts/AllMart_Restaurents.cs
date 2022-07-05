@@ -33,7 +33,7 @@ namespace MobileTest.TestScripts
         [Test]
         public void FindRestaurentsAndAddItem()
         {
-            
+            //find restaurents
             commonMethods.ResetAndWaitForReady(2000);
             commonMethods.CloseAlert();
             //driver.FindElementById("com.android.packageinstaller:id/permission_allow_button").Click();
